@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: "com.github.hierynomus.license"
 apply plugin: 'nebula.ospackage-base'
+apply plugin: 'com.jfrog.bintray'
 
 sourceCompatibility = 1.7
 
@@ -19,10 +20,32 @@ buildscript {
         maven {
             url "https://plugins.gradle.org/m2/"
         }
+        jcenter()
     }
     dependencies {
         classpath "gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.12.1"
         classpath 'com.netflix.nebula:gradle-ospackage-plugin:3.1.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
+    }
+}
+
+bintray {   
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+    pkg {
+        repo = 'spinnaker-demo'
+        name = 'hello-karyon-rxnetty'
+        userOrg = 'zaap59'
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/zaap59/hello-karyon-rxnetty.git'
+        debian {
+            distribution = 'trusty'
+            component = 'main'
+            architecture = 'i386,noarch,amd64'
+        }
+        version {
+            name = '${project.version}-${project.release}'
+        }
     }
 }
 
