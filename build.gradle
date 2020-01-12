@@ -71,8 +71,8 @@ task fatJar(type: Jar) {
 task packDeb(type: Deb, dependsOn: fatJar) {
 
   packageName = project.name
-  version = '${System.properties['version']}'
-  release = ${System.properties['release']}
+  version = '1'
+  release = '1'
   
   println "Build deb version : ${version}-${release}"
 
