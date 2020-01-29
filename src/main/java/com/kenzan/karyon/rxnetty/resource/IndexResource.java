@@ -59,7 +59,7 @@ public class IndexResource implements RequestHandler<ByteBuf, ByteBuf>{
                         } catch (Exception e){
                             e.printStackTrace();
                         }
-                        response.writeString("<html><head><style>body{text-align:center;font-family:'Lucida Grande'}</style></head><body><img src='https://d2908q01vomqb2.cloudfront.net/ca3512f4dfa95a03169c5a670a4c91a19b3077b4/2018/07/12/spin-logo-800x400.jpg' /><h2>Example Spinnaker Application</h2><h3>Instance Id " + instanceId + "</h3></body></html>");
+                        response.writeString("<html><head><style>body{text-align:center;font-family:'Lucida Grande'}</style></head><body><img src='https://www.decathlonpro.fr/media/wysiwyg/marques/DOMYOS.png' /><h2>Example Spinnaker Application</h2><h3>Instance Id " + instanceId + "</h3></body></html>");
                         return response.close();
                     }
                 });
